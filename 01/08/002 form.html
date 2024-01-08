@@ -11,54 +11,49 @@
     <form>
         <fieldset>
             <legend>個人資訊</legend>
-            <label for="name">
-                姓名：<input type="text" name="name" id="name">
-            </label>
+            <label for="name">姓名：</label>
+            <input type="text" name="name" id="name">
             <br>
-            <label for="sex">
-                性別：<input type="radio" name="sex">男
-                <input type="radio" name="sex">女
-            </label>
+            性別：
+            <label><input type="radio" name="sex" value="1">男</label>
+            <label><input type="radio" name="sex" value="2">女</label>
             <br>
-            <label for="education">
-                最高學歷：<select name="education" id="education" size="4">
-                    <option value="1">高中或以下</option>
-                    <option value="2">大專院校</option>
-                    <option value="3">碩士</option>
-                    <option value="4">博士</option>
-                </select>
-            </label>
+            <label for="education">最高學歷：</label>
+            <select name="education" id="education" size="4">
+                <option value="1">高中或以下</option>
+                <option value="2">大專院校</option>
+                <option value="3">碩士</option>
+                <option value="4">博士</option>
+            </select>
             <br>
-            <label for="expertise">
-                專長：（可複選）<select name="expertise[]" id="expertise" multiple>
-                    <option value="1">HTML/CSS</option>
-                    <option value="2">Javascript</option>
-                    <option value="3">Database</option>
-                    <option value="4">Java</option>
-                </select>
-            </label>
+            <label for="expertise">專長：（可複選）</label>
+            <select name="expertise[]" id="expertise" multiple>
+                <option value="1">HTML/CSS</option>
+                <option value="2">Javascript</option>
+                <option value="3">Database</option>
+                <option value="4">Java</option>
+            </select>
         </fieldset>
         <br>
         <fieldset>
             <legend>其他資訊</legend>
-            <label for="activity">您喜歡下列何種活動（可複選）？
-                <br>
-                <input type="checkbox" name="activity[]">閱讀
-                <input type="checkbox" name="activity[]">打球
-                <input type="checkbox" name="activity[]">逛街
-                <input type="checkbox" name="activity[]">聽音樂
-                <input type="checkbox" name="activity[]">水上運動
-                <input type="checkbox" name="activity[]">旅行
+            您喜歡下列何種活動（可複選）？
+            <br>
+            <label><input type="checkbox" name="activity[]" value="1">閱讀</label>
+            <label><input type="checkbox" name="activity[]" value="2">打球</label>
+            <label><input type="checkbox" name="activity[]" value="3">逛街</label>
+            <label><input type="checkbox" name="activity[]" value="4">聽音樂</label>
+            <label><input type="checkbox" name="activity[]" value="5">水上運動</label>
+            <label><input type="checkbox" name="activity[]" value="6">旅行</label>
             </label>
             <br>
-            <label for="activity">您對於使用臉書經營社群有何看法？
-                <br>
-                <textarea name="fb_view" id="fb_view" cols="45" rows="5"></textarea>
-            </label>
+            <label for="fb_view">您對於使用臉書經營社群有何看法？</label>
+            <br>
+            <textarea name="fb_view" id="fb_view" cols="45" rows="5"></textarea>
         </fieldset>
         <br>
-        <input type="submit" value="傳送資料">
-        <input type="reset" value="清除資料">
+        <button type="submit">傳送資料</button>
+        <button type="reset">清除資料</button>
     </form>
 </body>
 
