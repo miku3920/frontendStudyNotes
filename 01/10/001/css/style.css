@@ -1,0 +1,12 @@
+.header-color {
+    background-color: rgb(241, 188, 217);
+}
+
+.nav {
+    display: flex;
+}
+
+.nav-list {
+    list-style: none;
+    margin-right: 10px;
+}
