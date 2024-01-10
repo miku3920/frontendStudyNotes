@@ -1,0 +1,23 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: red;
+  border: 3px red dotted;
+}
+
+header p {
+  color: blueviolet;
+}
+
+.article-body {
+  color: darkblue;
+  background-color: lightgray;
+}
+
+#footer-p {
+  color: gray;
+  text-decoration: underline;
+}
