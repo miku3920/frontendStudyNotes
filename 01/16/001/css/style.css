@@ -1,0 +1,41 @@
+body {
+    background-color: gainsboro;
+}
+
+.div-all {
+    width: 385px;
+    height: 100px;
+    background: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey;
+    padding: 10px;
+    float: left;
+}
+
+.div-img {
+    width: 135px;
+    height: 100%;
+    background-color: gainsboro;
+    float: left;
+}
+
+.div-img img {
+    /* object-fit: cover; */
+    width: 100%;
+    height: 100%;
+}
+
+.div-cont {
+    width: 240px;
+    height: 100%;
+    float: left;
+    margin-left: 10px;
+    overflow: hidden; 
+}
+
+.div-cont h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
