@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <p>體重：<input type="text" id="weight">公斤</p>
+    <p>身高：<input type="text" id="height">公尺</p>
+    <h1>運算結果：</h1>
+    <p>您的體重為：<span id="weight_text"></span></p>
+    <p>身高為：<span id="height_text"></span></p>
+    <p>BMI：<span id="bmi_text"></span></p>
+    <p>結果：<span id="result_text"></span></p>
+
+    <script>
+        function format(float, n) {
+            return Math.round(float * 10 ** n) * 10 ** -n
+        }
+
+        function change() {
+            const weight = +document.getElementById('weight').value
+            const height = +document.getElementById('height').value
+            document.getElementById('weight_text').innerText = weight
+            document.getElementById('height_text').innerText = height
+
+            const BMI = weight / height ** 2
+            document.getElementById('bmi_text').innerText = format(BMI, 2)
+
+            const result_el = document.getElementById('result_text')
+            if (BMI < 18.5) {
+                result_el.parentElement.style.color = 'blue'
+                result_el.innerText = '過輕'
+            } else if (BMI < 24) {
+                result_el.parentElement.style.color = ''
+                result_el.innerText = '正常'
+            } else {
+                result_el.parentElement.style.color = 'red'
+                result_el.innerText = '過重'
+            }
+        }
+
+        document.getElementById('weight').addEventListener('input', change)
+        document.getElementById('height').addEventListener('input', change)
+    </script>
+</body>
+
+</html>
