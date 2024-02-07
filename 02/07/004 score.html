@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <p>班級 (A or B)：<input type="text" id="cls"></p>
+    <p>成績：<input type="text" id="score"></p>
+    <hr>
+    <p>結果：<span id="result_text"></span></p>
+
+    <script>
+        document.getElementById('cls').addEventListener('input', change)
+        document.getElementById('score').addEventListener('input', change)
+
+        function format(float, n) {
+            return Math.round(float * 10 ** n) * 10 ** -n
+        }
+
+        function change() {
+            const cls = document.getElementById('cls').value.toUpperCase()
+            const score = +document.getElementById('score').value
+
+            const result_el = document.getElementById('result_text')
+            if ((cls === 'A' && score >= 60) || (cls === 'B' && score >= 40)) {
+                result_el.style.color = 'blue'
+                result_el.innerText = '成績及格'
+            } else {
+                result_el.style.color = 'red'
+                result_el.innerText = '成績不及格'
+            }
+        }
+    </script>
+</body>
+
+</html>
