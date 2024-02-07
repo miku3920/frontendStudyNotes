@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <p>A：<input type="text" id="i_A" name="n_A" /></p>
+    <p>B：<input type="text" id="i_B" name="n_B" /></p>
+    <p>
+        <button type="button" id="add">+ A</button>
+        <button type="button" id="sub">- B</button>
+    </p>
+    <p>運算結果：</p>
+    <p><span id="sum"> = 0</span></p>
+
+    <script>
+        function change(op) {
+            let text = document.getElementById('sum').innerText.split('=')
+            let sum_text = text[0].trim()
+
+            const A = +document.getElementById('i_A').value
+            const B = +document.getElementById('i_B').value
+
+            let sum = +text[1]
+
+            if (op === 'add') {
+                sum_text += sum_text === '' ? 'A' : ' + A'
+                sum += A
+            } else {
+                sum_text += sum_text === '' ? 'B' : ' - B'
+                sum -= B
+            }
+
+            text = sum_text.trim().trim('+') + ' = ' + sum
+
+            document.getElementById('sum').innerText = text
+        }
+
+        document.getElementById('add').addEventListener('click', () => {
+            change('add')
+        })
+        document.getElementById('sub').addEventListener('click', () => {
+            change('sub')
+        })
+    </script>
+</body>
+
+</html>
