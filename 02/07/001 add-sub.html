@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <p>A：<input type="text" id="i_A" name="n_A" /></p>
+    <p>B：<input type="text" id="i_B" name="n_B" /></p>
+    <p>運算結果：</p>
+    <p>A + B = <span id="add"></span></p>
+    <p>A - B = <span id="sub"></span></p>
+
+    <script>
+        function change() {
+            const A = +document.getElementById('i_A').value
+            const B = +document.getElementById('i_B').value
+            document.getElementById('add').innerText = A + B
+            document.getElementById('sub').innerText = A - B
+        }
+
+        document.getElementById('i_A').addEventListener('input', change)
+        document.getElementById('i_B').addEventListener('input', change)
+    </script>
+</body>
+
+</html>
