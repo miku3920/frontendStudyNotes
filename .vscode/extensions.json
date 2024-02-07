@@ -35,6 +35,7 @@
         "mhutchie.git-graph",
         "eamodio.gitlens",
         "GitHub.vscode-pull-request-github",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "ritwickdey.liveserver"
     ]
 }

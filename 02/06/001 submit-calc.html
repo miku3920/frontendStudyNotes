@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function fnHelp() {
+            var A1, B1, C, D, E, F, G;
+            A1 = +document.getElementById("i_A").value;
+            B1 = +document.getElementById("i_B").value;
+
+            C = A1 + B1;
+            D = A1 - B1;
+            E = A1 == B1;
+            F = A1 < B1;
+            G = A1 > B1;
+
+            msg = "A+B :" + C + "\n";
+            msg += "A-B :" + D + "\n";
+            msg += "A=B :" + E + "\n";
+            msg += "A<B :" + F + "\n";
+            msg += "A>B : " + G + "\n";
+            alert(msg);
+
+            msg1 = "A+B :" + C + "<br>";
+            msg1 += "A-B :" + D + "<br>";
+            msg1 += "A=B :" + E + "<br>";
+            msg1 += "A < B :" + F + "<br>";
+            msg1 += "A>B :" + G + "<br>";
+            document.write(msg1);
+        }
+
+        function fnHelp1() {
+            alert("請輸入二個數值");
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        A：<input type="text" id="i_A" name="n_A" /><br />
+        B：<input type="text" id="i_B" name="n_B" /><br />
+        <input type="button" value="提交" onclick="fnHelp();" />
+        <input type="reset" value="清除">
+        <input type="button" value="說明" onclick="fnHelp1();" />
+    </form>
+
+</body>
+
+</html>
