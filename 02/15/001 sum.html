@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <p>輸入大於零之整數：<input type="text" id="num"></p>
+    <hr>
+    <p><span id="sum"></span></p>
+
+    <script>
+        document.getElementById('num').addEventListener('input', change)
+
+        function change() {
+            const num = +document.getElementById('num').value
+            const sum = num * (num + 1) / 2
+
+            const result_el = document.getElementById('sum')
+            if (!(num >= 1)) { // 排除非正整數
+                result_el.innerText = '請輸入大於零之整數'
+            } else if (num < 2) {
+                result_el.innerText = num + ' = ' + sum
+            } else if (num < 3) {
+                result_el.innerText = '1 + ' + num + ' = ' + sum
+            } else if (num < 4) {
+                result_el.innerText = '1 + 2 + ' + num + ' = ' + sum
+            } else {
+                result_el.innerText = '1 + 2 + ... + ' + num + ' = ' + sum
+            }
+        }
+    </script>
+</body>
+
+</html>
