@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>index</title>
+
+    <style>
+        body {
+            background-color: gainsboro;
+        }
+
+        .container {
+            display: flex;
+            align-content: center;
+            margin: 0px auto;
+            width: max-content;
+            border-bottom: 1px solid grey;
+            border-right: 1px solid grey;
+        }
+
+        .div-all {
+            width: 385px;
+            height: 100px;
+            background: white;
+            padding: 10px;
+        }
+
+        .img {
+            margin-top: 5px;
+            width: 135px;
+            height: 90px;
+            background-size: contain;
+            background-color: gainsboro;
+            float: left;
+        }
+
+        .div-cont {
+            width: 240px;
+            height: 100%;
+            float: left;
+            margin-left: 10px;
+            overflow: hidden;
+        }
+
+        .div-cont h4 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        button,
+        input[type="submit"],
+        input[type="reset"] {
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+        }
+
+        #fnPrev, #fnNext {
+            position: relative;
+            width: 40px;
+            background-color: darkcyan;
+        }
+
+        .prev-img {
+            position: absolute;
+            background-image: url('images/icon/prev.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            padding: 20px;
+            margin-top: -20px;
+            margin-left: -35px;
+        }
+
+        .next-img {
+            position: absolute;
+            background-image: url('images/icon/next.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            padding: 20px;
+            margin-top: -20px;
+            margin-left: -5px;
+        }
+    </style>
+
+
+    <script>
+        // 宣告index用來代表目前是第幾筆記錄，0表示第一筆
+        // 共用的變數宣告在所有function之外
+        var index = 0;
+        var img = new Array("pic_01.jpg", "pic_02.jpg", "pic_03.jpg");
+        var title = new Array("一中商圈", "逢甲夜市", "旱溪夜市");
+        var info = new Array("位在台中第一中學附近的商圈，滿滿的美食也吸引外地遊客慕名而來。", "逢甲夜市鄰近逢甲大學，蘊含著許多人潮排隊美食。", "比起逢甲夜市與一中商圈聲勢也是越來越浩大。");
+
+        function toHTML() {
+            div_cont.innerHTML =
+                '<div class="div-all">' +
+                '<a href="#">' +
+                '<img class="img" src="images/' + img[index] + '">' +
+                '<div class="div-cont">' +
+                '<h4>' + title[index] + '</h4>' +
+                '<p>' + info[index] + '</p>' +
+                '</div>' +
+                '</a >' +
+                '</div>';
+        }
+
+        window.onload = function () {
+            //將toHTML()函式取得的夜市資料呈現在#div_cont元素上
+            toHTML();
+            //onclick寫法一
+            fnPrev.onclick = function () { fnClick(this) };
+            fnNext.onclick = function () { fnClick(this) };
+        }
+
+        //按上一篇鈕執行
+        function fnClick(element) {
+            console.log(element);
+            console.log(element.id);
+            console.log(element.value);
+            console.log(element.dataset.type);
+            if (element.id == "fnPrev") {
+                index--;
+                // 判斷是否超出第一筆
+                if (index < 0) {
+                    //指定從最後一筆開始
+                    index = img.length - 1;
+                }
+            }
+            else {
+                index++;
+                // 判斷是否超出最後一筆
+                if (index >= img.length) {
+                    //指定從第一筆開始
+                    index = 0;
+                }
+            }
+            toHTML();
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <button type="button" data-type="Prev" id="fnPrev"><img class="prev-img"></button>
+        <div id="div_cont"></div>
+        <button type="button" data-type="Next" id="fnNext"><img class="next-img"></button>
+    </div>
+
+</body>
+
+</html>
