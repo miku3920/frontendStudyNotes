@@ -117,6 +117,17 @@
             //onclick寫法一
             fnPrev.onclick = function () { fnClick(this) };
             fnNext.onclick = function () { fnClick(this) };
+
+            let timer;
+            const setTimer = () => {
+                timer = setInterval(() => {
+                    fnClick(fnNext);
+                }, 3000);
+            }
+            setTimer()
+
+            div_cont.onmouseover = () => clearInterval(timer);
+            div_cont.onmouseout = () => setTimer();
         }
 
         //按上一篇鈕執行
