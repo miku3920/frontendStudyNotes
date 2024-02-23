@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./images/react.svg" alt="" width="300px">
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(() => {
+            $('img').on('mouseenter', () => {
+                $('img').attr('src', './images/vue.svg')
+            })
+            $('img').on('mouseleave', () => {
+                $('img').attr('src', './images/react.svg')
+            })
+        })
+    </script>
+</body>
+</html>
