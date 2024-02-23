@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .btn {
+            border: solid 1px;
+            border-color: black;
+            background-color: white;
+            padding: 10px 20px;
+        }
+
+        .white {
+            background-color: white;
+        }
+
+        .black {
+            background-color: black;
+        }
+
+        .btn-white {
+            border-color: black;
+            color: black;
+            background-color: white;
+        }
+
+        .btn-black {
+            border-color: white;
+            color: white;
+            background-color: black;
+        }
+    </style>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+            function fnOff() {
+                $("body").addClass("black");
+                $("body").removeClass("white");
+                $(".btn").addClass("btn-black");
+                $(".btn").removeClass("btn-white");
+
+                // $(".btn").css("border-color", "white");
+                // $(".btn").css("color", "white");
+                // $(".btn").css("background-color", "black");
+                // $("body").css("background-color", "black");
+            }
+            function fnOn() {
+                $("body").addClass("white");
+                $("body").removeClass("black");
+                $(".btn").addClass("btn-white");
+                $(".btn").removeClass("btn-black");
+
+                // $(".btn").css("border-color", "black");
+                // $(".btn").css("color", "black");
+                // $(".btn").css("background-color", "white");
+                // $("body").css("background-color", "white");
+            }
+    </script>
+</head>
+<body>
+    <input type="button" value="關燈" class="btn" onclick="fnOff();">
+    <input type="button" value="開燈" class="btn" onclick="fnOn();">
+</body>
+</html>
