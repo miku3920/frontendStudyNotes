@@ -44,6 +44,7 @@
         "vscode-icons-team.vscode-icons",
         "zhuangtongfa.material-theme",
         "vintharas.learn-vim",
-        "ms-ceintl.vscode-language-pack-zh-hant"
+        "ms-ceintl.vscode-language-pack-zh-hant",
+        "glenn2223.live-sass"
     ]
 }
