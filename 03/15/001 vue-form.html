@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <form>
+            <fieldset>
+                <legend>個人資訊</legend>
+                <label for="name">姓名：</label>
+                <input type="text" name="name" id="name" v-model="user.name">
+                <br>
+                性別：
+                <label><input type="radio" name="sex" value="1" v-model="user.sex">男</label>
+                <label><input type="radio" name="sex" value="2" v-model="user.sex">女</label>
+                <br>
+                <label for="education">最高學歷：</label>
+                <select name="education" id="education" size="4" v-model="user.education">
+                    <option value="1">高中或以下</option>
+                    <option value="2">大專院校</option>
+                    <option value="3">碩士</option>
+                    <option value="4">博士</option>
+                </select>
+                <br>
+                <label for="expertise">專長：（可複選）</label>
+                <select name="expertise[]" id="expertise" multiple v-model="user.expertise">
+                    <option value="1">HTML/CSS</option>
+                    <option value="2">Javascript</option>
+                    <option value="3">Database</option>
+                    <option value="4">Java</option>
+                </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>其他資訊</legend>
+                您喜歡下列何種活動（可複選）？
+                <br>
+                <label><input type="checkbox" name="activity[]" value="1" v-model="user.activity">閱讀</label>
+                <label><input type="checkbox" name="activity[]" value="2" v-model="user.activity">打球</label>
+                <label><input type="checkbox" name="activity[]" value="3" v-model="user.activity">逛街</label>
+                <label><input type="checkbox" name="activity[]" value="4" v-model="user.activity">聽音樂</label>
+                <label><input type="checkbox" name="activity[]" value="5" v-model="user.activity">水上運動</label>
+                <label><input type="checkbox" name="activity[]" value="6" v-model="user.activity">旅行</label>
+                </label>
+                <br>
+                <label for="fb_view">您對於使用臉書經營社群有何看法？</label>
+                <br>
+                <textarea name="fb_view" id="fb_view" cols="45" rows="5" v-model="user.fb_view"></textarea>
+            </fieldset>
+            <br>
+            <button type="submit">傳送資料</button>
+            <button type="reset">清除資料</button>
+        </form>
+
+        <p>姓名：{{ user.name }}</p>
+        <p>性別：{{ text.sex }}</p>
+        <p>最高學歷：{{ text.education }}</p>
+        <p>專長：{{ text.expertise }}</p>
+        <p>喜歡的活動：{{ text.activity }}</p>
+        <p>經營社群的看法：{{ user.fb_view }}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp, reactive, computed } = Vue
+
+        createApp({
+            setup() {
+                const user = reactive({
+                    name: '',
+                    sex: 0,
+                    education: 0,
+                    expertise: [],
+                    activity: [],
+                    fb_view: '',
+                })
+
+                const sex = computed(() => {
+                    return ['', '男', '女', '其他'][user.sex] ?? ''
+                })
+
+                const education = computed(() => {
+                    return ['', '高中或以下', '大專院校', '碩士', '博士'][user.education] ?? ''
+                })
+
+                const expertise = computed(() => {
+                    return user.expertise.map((x) => {
+                        return ['', 'HTML/CSS', 'Javascript', 'Database', 'Java'][x] ?? ''
+                    }).join('、')
+                })
+
+                const activity = computed(() => {
+                    return user.activity.map((x) => {
+                        return ['', '閱讀', '打球', '逛街', '聽音樂', '水上運動', '旅行'][x] ?? ''
+                    }).join('、')
+                })
+
+                const text = reactive({
+                    sex, education, expertise, activity
+                })
+
+                return {
+                    user,
+                    text,
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
