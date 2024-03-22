@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="app">
+        <p>體重：<input type="text" v-model.number="weight">公斤</p>
+        <p>身高：<input type="text" v-model.number="height">公尺</p>
+        <h1>運算結果：</h1>
+        <p>您的體重為：<span>{{ weight }}</span></p>
+        <p>身高為：<span>{{ height }}</span></p>
+        <p>BMI：<span>{{ bmi }}</span></p>
+        <p>結果：<span :style="result.style">{{ result.text }}</span></p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp, ref, reactive, computed } = Vue
+
+        createApp({
+            setup() {
+                const weight = ref(30)
+                const height = ref(1.25)
+
+                const bmi = computed(() => {
+                    return Math.round(weight.value / height.value ** 2 * 100) / 100
+                })
+
+                const result = computed(() => {
+                    if (bmi.value < 18.5) {
+                        return {
+                            style: { color: 'blue' },
+                            text: '過輕',
+                        }
+                    }
+
+                    if (bmi.value < 24) {
+                        return {
+                            style: {},
+                            text: '正常',
+                        }
+                    }
+
+                    return {
+                        style: { color: 'red' },
+                        text: '過重',
+                    }
+                })
+
+                return {
+                    weight,
+                    height,
+                    bmi,
+                    result,
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
