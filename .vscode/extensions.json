@@ -45,6 +45,7 @@
         "zhuangtongfa.material-theme",
         "vintharas.learn-vim",
         "ms-ceintl.vscode-language-pack-zh-hant",
-        "glenn2223.live-sass"
+        "glenn2223.live-sass",
+        "hossaini.bootstrap-intellisense"
     ]
 }
