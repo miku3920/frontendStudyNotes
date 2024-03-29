@@ -46,6 +46,7 @@
         "vintharas.learn-vim",
         "ms-ceintl.vscode-language-pack-zh-hant",
         "glenn2223.live-sass",
-        "hossaini.bootstrap-intellisense"
+        "hossaini.bootstrap-intellisense",
+        "vue.volar"
     ]
 }
